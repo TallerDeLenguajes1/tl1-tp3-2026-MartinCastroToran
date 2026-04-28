@@ -2,8 +2,11 @@
 triple:          'x86_64-apple-darwin'
 binary-path:     '/Users/martincastrotoran/Desktop/Taller de Lenguajes I/tp3/tl1-tp3-2026-MartinCastroToran/ArregloDeNombres'
 relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100000E30, symSize: 0x80 }
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100000CB0, symSize: 0x70 }
   - { offsetInCU: 0x4D, offset: 0x4D, size: 0x8, addend: 0x0, symName: _buff, symBinAddr: 0x100002000, symSize: 0x0 }
-  - { offsetInCU: 0x62, offset: 0x62, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100000E30, symSize: 0x80 }
-  - { offsetInCU: 0xC2, offset: 0xC2, size: 0x8, addend: 0x0, symName: _cargarArreglo, symObjAddr: 0x80, symBinAddr: 0x100000EB0, symSize: 0xB6 }
+  - { offsetInCU: 0x62, offset: 0x62, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100000CB0, symSize: 0x70 }
+  - { offsetInCU: 0xB4, offset: 0xB4, size: 0x8, addend: 0x0, symName: _cargarArreglo, symObjAddr: 0x70, symBinAddr: 0x100000D20, symSize: 0xA0 }
+  - { offsetInCU: 0x110, offset: 0x110, size: 0x8, addend: 0x0, symName: _mostrarPersonas, symObjAddr: 0x110, symBinAddr: 0x100000DC0, symSize: 0x60 }
+  - { offsetInCU: 0x15E, offset: 0x15E, size: 0x8, addend: 0x0, symName: _liberarMemoria, symObjAddr: 0x170, symBinAddr: 0x100000E20, symSize: 0x50 }
+  - { offsetInCU: 0x1AC, offset: 0x1AC, size: 0x8, addend: 0x0, symName: _buscarNombre, symObjAddr: 0x1C0, symBinAddr: 0x100000E70, symSize: 0xA2 }
 ...
