@@ -44,3 +44,20 @@ void mostrarPersonas(char ** vector, int tamVector){
         printf("Nombre numero [%d]: %s \n",(i + 1), vector[i]); 
     }
 }
+
+void buscarNombre(char ** vector, int tamVector, int indice){
+    int bandera = 0;
+    int i = 0;
+
+    while (i < tamVector || bandera == 1){
+        if (indice = i){
+            bandera = 1;
+            printf("Nombre de la lista con indice [%d]: %s", (i + 1) , vector[i]);
+        }
+        i++;
+    }
+    if (bandera == 0){
+        printf("no se encontró el valor buscado");
+    }
+}
+
