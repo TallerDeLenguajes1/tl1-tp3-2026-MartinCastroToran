@@ -8,7 +8,8 @@ char buff[MAX];
 void cargarArreglo(char ** vector, int tamVector);
 void liberarMemoria(char ** vector, int tamVector);
 void mostrarPersonas(char ** vector, int tamVector);
-int buscarNombre(char ** vector, int tamVector,char clave[MAX]);
+int buscarNombrePorPalabra(char ** vector, int tamVector,char clave[MAX]);
+void buscarNombrePorID(char ** vector, int tamVector,int indice);
 
 int main(){
     char ** vector; //Vector puntero de punteros
@@ -48,7 +49,25 @@ void mostrarPersonas(char ** vector, int tamVector){
     }
 }
 
-int buscarNombre(char ** vector, int tamVector,char clave[MAX]){
+void buscarNombrePorID(char ** vector, int tamVector, int indice){
+    int bandera = 0;
+    int i = 0;
+
+    while (i < tamVector || bandera == 1){
+        if (indice = i){
+            bandera = 1;
+            printf("Nombre de la lista con indice [%d]: %s", (i + 1) , vector[i]);
+        }
+        i++;
+    }
+    if (bandera == 0){
+        printf("no se encontró el valor buscado");
+    }
+}
+
+
+
+int buscarNombrePorPalabra(char ** vector, int tamVector,char clave[MAX]){
     for (int i=0; i < tamVector; i++){
 
         if (strstr(vector[i], clave) != NULL)
