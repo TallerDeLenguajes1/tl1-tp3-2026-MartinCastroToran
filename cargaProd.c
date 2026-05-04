@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-char * TiposProductos = {“Galletas”,”Snack”,”Cigarrillos”,”Caramelos”,”Bebidas”};
+char * TiposProductos[] = {"Galletas","Snack","Cigarrillos","Caramelos","Bebidas"};
 
 struct Producto {
     int ProductoID; //Numerado en ciclo iterativo
@@ -17,14 +17,15 @@ struct Cliente {
     char *NombreCliente; // Ingresado por usuario
     int CantidadProductosAPedir; // (aleatorio entre 1 y 5)
     Producto *Productos; //El tamaño de este arreglo depende de la variable
-    // “CantidadProductosAPedir”
+    // "CantidadProductosAPedir"
 } typedef Cliente;
 
 
-void cargarMenu();
+int cargarMenu();
 void cargarClientes(int cantidadClientes, Cliente ** listaClientes);
-int calcularCosto(Producto * p);
+int calcularCosto(Producto p);
 int calcularCostoTotal(Cliente * l);
+void mostrarResultados(Cliente ** l, int cantClientes);
 
 int main()
 {
@@ -34,10 +35,11 @@ int main()
     cantidadClientes = cargarMenu();
     listaClientes = malloc(sizeof(Cliente *) * cantidadClientes);
     cargarClientes(cantidadClientes, listaClientes);
+    mostrarResultados(listaClientes, cantidadClientes);
     return 0;
 }
 
-void cargarMenu(){
+int cargarMenu(){
     int cant;
     printf("\n\nBienvenido a la Interfaz de carga de productos para preventistas!\n\n");
     printf("Ingrese la cantidad de clientes: ");
@@ -54,7 +56,7 @@ void cargarClientes(int cantidadClientes, Cliente ** listaClientes){
         gets(listaClientes[i]->NombreCliente);
         listaClientes[i]->CantidadProductosAPedir = (rand() % 5) + 1;
         listaClientes[i]->Productos = malloc(sizeof(Producto) * listaClientes[i]->CantidadProductosAPedir);
-        for (int j = 0; j < count; j++)
+        for (int j = 0; j < listaClientes[i]->CantidadProductosAPedir; j++)
         {
             listaClientes[i]->Productos->ProductoID = j;
             listaClientes[i]->Productos->Cantidad = (rand() % 10) + 1;
@@ -67,13 +69,13 @@ void cargarClientes(int cantidadClientes, Cliente ** listaClientes){
     
 }
 
-int calcularCosto(Producto * p){
-    return p->Cantidad * p->PrecioUnitario;
+int calcularCosto(Producto p){
+    return p.Cantidad * p.PrecioUnitario;
 }
 
 int calcularCostoTotal(Cliente * c){
     int suma = 0;
-    for (int i = 0; i < l->CantidadProductosAPedir; i++)
+    for (int i = 0; i < c->CantidadProductosAPedir; i++)
     {
         suma += calcularCosto(c->Productos[i]);
     }
@@ -88,12 +90,12 @@ void mostrarResultados(Cliente ** l, int cantClientes){
         for (int i = 0; i < l[i]->CantidadProductosAPedir; i++)
         {
             printf("ID: \n%d\n",l[i] ->Productos->ProductoID);
-            printf("Tipo de Producto: %d\n",l[i] ->Productos->TipoProducto);
-            printf("Precio Unitario: %d\n",l[i] ->Productos->PrecioUnitario);
+            printf("Tipo de Producto: %s\n",l[i] ->Productos->TipoProducto);
+            printf("Precio Unitario: %f\n",l[i] ->Productos->PrecioUnitario);
             printf("Cantidad: %d\n",l[i] ->Productos->Cantidad);
         }
-        printf("\nTotal: %d" calcularCostoTotal(l[i]));
+        printf("\nTotal: %d", calcularCostoTotal(l[i]));
         
-    }`
+    }
     
 }
